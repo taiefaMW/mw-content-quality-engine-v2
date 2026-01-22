@@ -16,11 +16,11 @@ const dimensionConfig: Record<keyof ScoreBreakdownType, { label: string; icon: R
 
 export function ScoreBreakdown({ scores }: ScoreBreakdownProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-5 h-full flex flex-col">
       <h3 className="font-heading text-base font-semibold text-primary">
         Scoring Breakdown
       </h3>
-      <div className="space-y-5">
+      <div className="space-y-6 flex-1 flex flex-col justify-between py-2">
         {(Object.entries(scores) as [keyof ScoreBreakdownType, number][]).map(
           ([key, value], index) => (
             <ScoreBar
@@ -29,7 +29,7 @@ export function ScoreBreakdown({ scores }: ScoreBreakdownProps) {
               icon={dimensionConfig[key].icon}
               score={value}
               maxScore={20}
-              delay={index * 100}
+              delay={index * 80}
             />
           )
         )}

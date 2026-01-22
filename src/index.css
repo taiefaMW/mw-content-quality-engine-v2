@@ -133,11 +133,25 @@
   }
 
   .score-bar-gradient-high {
-    background: linear-gradient(90deg, hsl(224 100% 43%) 0%, hsl(209 78% 59%) 100%);
+    background: linear-gradient(90deg, hsl(209 78% 59%) 0%, hsl(224 100% 43%) 100%);
   }
 
   .score-bar-gradient-low {
     background: linear-gradient(90deg, hsl(36 95% 47%) 0%, hsl(36 85% 55%) 100%);
+  }
+
+  .score-bar-animate {
+    animation: bar-fill 0.7s ease-out forwards;
+    width: 0;
+  }
+
+  @keyframes bar-fill {
+    from {
+      width: 0;
+    }
+    to {
+      width: var(--bar-target-width);
+    }
   }
 
   .card-shadow {

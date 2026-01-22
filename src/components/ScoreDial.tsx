@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 
 interface ScoreDialProps {
   score: number;
@@ -6,9 +6,31 @@ interface ScoreDialProps {
 }
 
 export function ScoreDial({ score, status }: ScoreDialProps) {
+  const [animatedScore, setAnimatedScore] = useState(0);
   const isHigh = score >= 80;
-  const circumference = 2 * Math.PI * 52; // radius = 52 (larger dial)
-  const offset = circumference - (score / 100) * circumference;
+  const circumference = 2 * Math.PI * 52;
+  const offset = circumference - (animatedScore / 100) * circumference;
+
+  // Animate score from 0 to final value
+  useEffect(() => {
+    setAnimatedScore(0);
+    const duration = 700;
+    const startTime = Date.now();
+    
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setAnimatedScore(Math.round(score * eased));
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }, [score]);
 
   const statusLabel = useMemo(() => {
     switch (status) {
@@ -69,11 +91,7 @@ export function ScoreDial({ score, status }: ScoreDialProps) {
             strokeDasharray={circumference}
             strokeDashoffset={offset}
             filter="url(#dialGlow)"
-            style={{
-              '--score-offset': offset,
-              transition: 'stroke-dashoffset 1s ease-out',
-            } as React.CSSProperties}
-            className="animate-score-fill"
+            className="transition-all duration-700 ease-out"
           />
         </svg>
         
@@ -84,17 +102,17 @@ export function ScoreDial({ score, status }: ScoreDialProps) {
               isHigh ? 'text-primary' : 'text-accent'
             }`}
           >
-            {score}
+            {animatedScore}
           </span>
           <span className="text-sm text-muted-foreground font-medium">/100</span>
         </div>
       </div>
       
-      {/* Status label */}
+      {/* Status label - light blue fill for approved, not gradient */}
       <div 
-        className={`px-5 py-2 rounded-full text-sm font-semibold shadow-sm ${
+        className={`px-5 py-2 rounded-full text-sm font-semibold ${
           status === 'approved' 
-            ? 'gradient-primary text-primary-foreground' 
+            ? 'bg-primary/10 text-primary' 
             : 'bg-accent/15 text-accent'
         }`}
       >
