@@ -23,11 +23,11 @@ const dimensionLabels: Record<keyof ScoreBreakdown, string> = {
 };
 
 const improvementGuidance: Record<keyof ScoreBreakdown, string> = {
-  openingStrength: `Your opening doesn't justify stopping the scroll. Try leading with an immediate decision, risk, or concrete scenario. If your first line wouldn't work as a headline, it needs reworking. Example: "A $7,500 wholesale order just dropped in your Shopify store…"`,
-  businessImpact: `The problem isn't framed as a business consequence. Reframe around revenue, margin, or scaling risk—not just operational inconvenience. Frame accounting as risk management, not compliance.`,
-  clickIntentClarity: `The value of clicking isn't obvious. Ask: "What will the reader get if they click?" Promise clarity, comparison, or decision support—not product features. Example CTA: "Read the full breakdown" beats "Learn more about us."`,
-  credibilitySpecificity: `This reads generic or abstract. Add concrete details, specific numbers, or real operational scenarios. No concrete details = hard cap at 10. Use scenario-based storytelling.`,
-  formatFit: `The format may be working against your message. Carousels dominate top CTR for comparisons and lists. Images only work with strong stats or bold claims. Video works best for opinionated, myth-busting content.`,
+  openingStrength: `Hook is too vague. Start with a sharper problem or dollar impact.`,
+  businessImpact: `Frame the problem as revenue or margin risk, not just operational inconvenience.`,
+  clickIntentClarity: `Make the click value obvious. Promise clarity, comparison, or decision support.`,
+  credibilitySpecificity: `Add concrete details—specific numbers, tools, or real scenarios.`,
+  formatFit: `Format may work against your message. Consider carousels for lists, video for opinions.`,
 };
 
 function scoreOpening(text: string): number {

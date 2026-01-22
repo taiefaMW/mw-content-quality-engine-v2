@@ -51,17 +51,17 @@ const Index = () => {
                 <ScoreDial score={result.totalScore} status={result.status} />
               </div>
               
-              {/* Feedback Panel */}
+              {/* Improvements Panel */}
               <div className="bg-card rounded-xl p-5 md:p-6 card-shadow flex-1">
                 <h3 className="font-heading text-base font-semibold text-primary mb-3">
-                  Feedback
+                  Improvements
                 </h3>
                 <FeedbackPanel result={result} />
               </div>
             </div>
             
-            {/* Right: Score Breakdown */}
-            <div className="bg-card rounded-xl p-5 md:p-6 card-shadow h-fit lg:self-stretch">
+            {/* Right: Score Breakdown - expanded vertically */}
+            <div className="bg-card rounded-xl p-5 md:p-6 card-shadow lg:self-stretch flex flex-col">
               <ScoreBreakdown scores={result.scores} />
             </div>
           </div>
