@@ -196,7 +196,7 @@ export function scoreContent(text: string): ScoringResult {
       },
       totalScore: 0,
       status: 'do-not-publish',
-      feedback: 'Paste or upload your draft to begin scoring.',
+      feedback: 'Paste your draft to begin scoring.',
       lowestDimension: null,
     };
   }
