@@ -1,4 +1,4 @@
-import { CheckCircle2, AlertTriangle, XCircle } from 'lucide-react';
+import { CheckCircle2, AlertTriangle } from 'lucide-react';
 import type { ScoringResult } from '@/lib/scoringEngine';
 
 interface FeedbackPanelProps {
@@ -11,13 +11,13 @@ export function FeedbackPanel({ result }: FeedbackPanelProps) {
   const icon = {
     approved: <CheckCircle2 className="w-5 h-5 text-primary" />,
     rewrite: <AlertTriangle className="w-5 h-5 text-accent" />,
-    'do-not-publish': <XCircle className="w-5 h-5 text-destructive" />,
+    'do-not-publish': <AlertTriangle className="w-5 h-5 text-accent" />,
   }[status];
 
   const bgColor = {
     approved: 'bg-primary/5 border-primary/20',
     rewrite: 'bg-accent/5 border-accent/20',
-    'do-not-publish': 'bg-destructive/5 border-destructive/20',
+    'do-not-publish': 'bg-accent/5 border-accent/20',
   }[status];
 
   // Parse markdown-style bold

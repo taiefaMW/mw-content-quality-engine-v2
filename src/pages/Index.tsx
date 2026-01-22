@@ -33,37 +33,36 @@ const Index = () => {
         <Header />
         
         <main className="py-6 md:py-10">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-10">
-            {/* Left Column: Input + Notion Controls */}
-            <div className="space-y-4">
-              <div className="bg-card rounded-xl p-5 md:p-6 card-shadow">
-                <DraftInput value={draft} onChange={setDraft} />
-                <NotionControls score={result.totalScore} onPush={handlePushToNotion} />
-              </div>
-            </div>
-            
-            {/* Right Column: Scoring */}
-            <div className="space-y-6">
-              {/* Score Dial */}
-              <div className="bg-card rounded-xl p-5 md:p-6 card-shadow flex flex-col items-center">
-                <h3 className="font-heading text-base font-semibold text-foreground mb-4 self-start">
+          {/* Input Section */}
+          <div className="bg-card rounded-xl p-5 md:p-6 card-shadow mb-8">
+            <DraftInput value={draft} onChange={setDraft} />
+            <NotionControls score={result.totalScore} onPush={handlePushToNotion} />
+          </div>
+
+          {/* Scoring Section - Side by Side */}
+          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
+            {/* Left: Total Score + Feedback */}
+            <div className="space-y-6 flex flex-col">
+              {/* Score Dial - Hero */}
+              <div className="bg-card rounded-xl p-6 md:p-8 card-shadow flex flex-col items-center">
+                <h3 className="font-heading text-lg font-semibold text-primary mb-5 self-start">
                   Total Score
                 </h3>
                 <ScoreDial score={result.totalScore} status={result.status} />
               </div>
               
-              {/* Score Breakdown */}
-              <div className="bg-card rounded-xl p-5 md:p-6 card-shadow">
-                <ScoreBreakdown scores={result.scores} />
-              </div>
-              
               {/* Feedback Panel */}
-              <div className="bg-card rounded-xl p-5 md:p-6 card-shadow">
-                <h3 className="font-heading text-base font-semibold text-foreground mb-3">
+              <div className="bg-card rounded-xl p-5 md:p-6 card-shadow flex-1">
+                <h3 className="font-heading text-base font-semibold text-primary mb-3">
                   Feedback
                 </h3>
                 <FeedbackPanel result={result} />
               </div>
+            </div>
+            
+            {/* Right: Score Breakdown */}
+            <div className="bg-card rounded-xl p-5 md:p-6 card-shadow h-fit lg:self-stretch">
+              <ScoreBreakdown scores={result.scores} />
             </div>
           </div>
         </main>

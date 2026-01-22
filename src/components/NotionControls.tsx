@@ -18,10 +18,10 @@ export function NotionControls({ score, onPush }: NotionControlsProps) {
       <Button
         onClick={onPush}
         disabled={!canPush}
-        className={`gap-2 transition-all ${
+        className={`gap-2 transition-all shadow-md ${
           canPush 
-            ? 'gradient-primary hover:opacity-90' 
-            : 'bg-muted text-muted-foreground cursor-not-allowed'
+            ? 'bg-primary hover:bg-gradient-to-r hover:from-primary hover:to-[#4594E9] text-primary-foreground' 
+            : 'bg-muted text-muted-foreground cursor-not-allowed shadow-none'
         }`}
       >
         <Send className="w-4 h-4" />
@@ -37,7 +37,7 @@ export function NotionControls({ score, onPush }: NotionControlsProps) {
         />
         <Label 
           htmlFor="auto-push" 
-          className={`text-sm ${!canPush ? 'text-muted-foreground' : 'text-foreground'}`}
+          className={`text-sm font-medium ${!canPush ? 'text-muted-foreground' : 'text-foreground'}`}
         >
           Auto-push
         </Label>
