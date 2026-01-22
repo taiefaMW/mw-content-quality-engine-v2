@@ -39,10 +39,10 @@ const Index = () => {
             <NotionControls score={result.totalScore} onPush={handlePushToNotion} />
           </div>
 
-          {/* Scoring Section - Side by Side */}
+          {/* Scoring Section - Side by Side on Desktop */}
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Left: Total Score + Feedback */}
-            <div className="space-y-6 flex flex-col">
+            {/* Left Column: Total Score + Improvements (desktop) */}
+            <div className="space-y-6 flex flex-col order-1 lg:order-1">
               {/* Score Dial - Hero */}
               <div className="bg-card rounded-xl p-6 md:p-8 card-shadow flex flex-col items-center">
                 <h3 className="font-heading text-lg font-semibold text-primary mb-5 self-start">
@@ -51,8 +51,8 @@ const Index = () => {
                 <ScoreDial score={result.totalScore} status={result.status} />
               </div>
               
-              {/* Improvements Panel */}
-              <div className="bg-card rounded-xl p-5 md:p-6 card-shadow flex-1">
+              {/* Improvements Panel - appears last on mobile, here on desktop */}
+              <div className="bg-card rounded-xl p-5 md:p-6 card-shadow flex-1 order-3 lg:order-2">
                 <h3 className="font-heading text-base font-semibold text-primary mb-3">
                   Improvements
                 </h3>
@@ -60,8 +60,8 @@ const Index = () => {
               </div>
             </div>
             
-            {/* Right: Score Breakdown - expanded vertically */}
-            <div className="bg-card rounded-xl p-5 md:p-6 card-shadow lg:self-stretch flex flex-col">
+            {/* Right Column: Score Breakdown - second on mobile, right on desktop */}
+            <div className="bg-card rounded-xl p-5 md:p-6 card-shadow lg:self-stretch flex flex-col order-2 lg:order-2">
               <ScoreBreakdown scores={result.scores} />
             </div>
           </div>
