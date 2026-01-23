@@ -8,11 +8,14 @@ import { ScoreBreakdown } from '@/components/ScoreBreakdown';
 import { FeedbackPanel } from '@/components/FeedbackPanel';
 import { scoreContent, type ScoringResult } from '@/lib/scoringEngine';
 import { toast } from 'sonner';
-import bgImage from '@/assets/content-engine-bg.png';
+import { useTheme } from '@/contexts/ThemeContext';
+import bgBlue from '@/assets/content-engine-bg.png';
+import bgLight from '@/assets/content-engine-bg-light.png';
 
 const Index = () => {
   const [draft, setDraft] = useState('');
   const [result, setResult] = useState<ScoringResult>(() => scoreContent(''));
+  const { isBlueMode } = useTheme();
 
   // Auto-score on draft change (debounced)
   useEffect(() => {
@@ -32,9 +35,9 @@ const Index = () => {
     <div className="min-h-screen flex flex-col relative">
       {/* Background - fixed, no blur, top center */}
       <div 
-        className="fixed inset-0 z-0"
+        className="fixed inset-0 z-0 transition-all duration-500"
         style={{
-          backgroundImage: `url(${bgImage})`,
+          backgroundImage: `url(${isBlueMode ? bgBlue : bgLight})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat',

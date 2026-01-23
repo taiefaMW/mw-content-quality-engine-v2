@@ -96,6 +96,10 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.7" },
         },
+        "sparkle-float": {
+          "0%, 100%": { transform: "rotate(6deg) translateY(0px)", opacity: "1" },
+          "50%": { transform: "rotate(8deg) translateY(-4px)", opacity: "0.85" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -104,6 +108,7 @@ export default {
         "bar-fill": "bar-fill 0.6s ease-out forwards",
         "fade-in": "fade-in 0.4s ease-out forwards",
         "pulse-soft": "pulse-soft 2s ease-in-out infinite",
+        "sparkle-float": "sparkle-float 2.5s ease-in-out infinite",
       },
     },
   },

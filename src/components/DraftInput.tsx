@@ -10,11 +10,11 @@ interface DraftInputProps {
 export function DraftInput({ value, onChange }: DraftInputProps) {
   return (
     <div className="space-y-3 relative">
-      {/* Sparkle decoration - larger, overlapping corner */}
+      {/* Sparkle decoration - positioned at top-right corner, overlapping card edge */}
       <img 
         src={sparkle} 
         alt="" 
-        className="absolute -top-8 -right-8 w-20 h-20 md:w-24 md:h-24 pointer-events-none z-10 rotate-6"
+        className="absolute -top-6 -right-6 w-16 h-16 md:w-20 md:h-20 pointer-events-none z-10 rotate-6 animate-sparkle-float"
       />
       
       <div className="flex items-center gap-2">
