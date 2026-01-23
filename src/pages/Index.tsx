@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { DraftInput } from '@/components/DraftInput';
@@ -8,6 +8,7 @@ import { ScoreBreakdown } from '@/components/ScoreBreakdown';
 import { FeedbackPanel } from '@/components/FeedbackPanel';
 import { scoreContent, type ScoringResult } from '@/lib/scoringEngine';
 import { toast } from 'sonner';
+import bgImage from '@/assets/content-engine-bg.png';
 
 const Index = () => {
   const [draft, setDraft] = useState('');
@@ -28,8 +29,23 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <div className="container max-w-6xl mx-auto px-4 flex-1">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Background with blur */}
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(2px)',
+        }}
+      />
+      {/* Overlay for better contrast */}
+      <div className="fixed inset-0 z-0 bg-black/10" />
+      
+      {/* Content */}
+      <div className="container max-w-6xl mx-auto px-4 flex-1 relative z-10">
         <Header />
         
         <main className="py-6 md:py-10">

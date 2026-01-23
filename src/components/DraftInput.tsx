@@ -1,5 +1,6 @@
 import { FileText } from 'lucide-react';
 import { Textarea } from '@/components/ui/textarea';
+import sparkle from '@/assets/sparkle.png';
 
 interface DraftInputProps {
   value: string;
@@ -8,7 +9,14 @@ interface DraftInputProps {
 
 export function DraftInput({ value, onChange }: DraftInputProps) {
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 relative">
+      {/* Sparkle decoration */}
+      <img 
+        src={sparkle} 
+        alt="" 
+        className="absolute -top-2 -right-2 w-10 h-10 md:w-12 md:h-12 pointer-events-none z-10"
+      />
+      
       <div className="flex items-center gap-2">
         <FileText className="w-5 h-5 text-primary" />
         <h2 className="font-heading text-lg font-semibold text-primary">
