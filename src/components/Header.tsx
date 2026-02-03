@@ -29,7 +29,7 @@ export function Header() {
       </button>
 
       <img 
-        src={isBlueMode ? logoWhite : logoColor} 
+        src={isBlueMode ? logoColor : logoWhite} 
         alt="MyWorks" 
         className="h-10 md:h-12 object-contain"
       />
