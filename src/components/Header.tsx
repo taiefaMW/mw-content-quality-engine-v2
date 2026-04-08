@@ -2,6 +2,7 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import logoWhite from '@/assets/myworks-logo-white.png';
 import logoColor from '@/assets/myworks-logo.png';
+import underline from '@/assets/underline.png';
 
 export function Header() {
   const { isBlueMode, toggleMode } = useTheme();
