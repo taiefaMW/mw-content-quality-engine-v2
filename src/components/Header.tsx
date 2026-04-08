@@ -37,7 +37,7 @@ export function Header() {
         className="font-heading text-3xl md:text-4xl font-semibold text-center"
         style={{ color: isBlueMode ? '#ffffff' : '#003edb' }}
       >
-        Content Quality Engine
+        Content <span className="relative inline-block">Quality<img src={underline} alt="" className="absolute -bottom-2 left-0 w-full h-auto pointer-events-none" /></span> Engine
       </h1>
       <p 
         className="text-xs md:text-sm text-center whitespace-nowrap"
