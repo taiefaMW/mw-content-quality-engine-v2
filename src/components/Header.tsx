@@ -41,7 +41,7 @@ export function Header() {
         >
           Content Quality Engine
         </h1>
-        <img src={underline} alt="" className="h-4 md:h-5 w-64 md:w-80 object-contain -mt-2" />
+        <img src={underline} alt="" className="w-72 md:w-96 -mt-3" style={{ height: '16px', objectFit: 'cover', objectPosition: 'center 52%' }} />
       </div>
       <p 
         className="text-xs md:text-sm text-center whitespace-nowrap"
