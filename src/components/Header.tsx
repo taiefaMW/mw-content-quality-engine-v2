@@ -2,6 +2,7 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import logoWhite from '@/assets/myworks-logo-white.png';
 import logoColor from '@/assets/myworks-logo.png';
+import underline from '@/assets/underline.png';
 
 
 export function Header() {
@@ -33,12 +34,15 @@ export function Header() {
         alt="MyWorks" 
         className="h-10 md:h-12 object-contain"
       />
-      <h1 
-        className="font-heading text-3xl md:text-4xl font-semibold text-center"
-        style={{ color: isBlueMode ? '#ffffff' : '#003edb' }}
-      >
-        Content Quality Engine
-      </h1>
+      <div className="flex flex-col items-center">
+        <h1 
+          className="font-heading text-3xl md:text-4xl font-semibold text-center"
+          style={{ color: isBlueMode ? '#ffffff' : '#003edb' }}
+        >
+          Content Quality Engine
+        </h1>
+        <img src={underline} alt="" className="h-2 md:h-3 w-48 md:w-64 object-contain -mt-1" />
+      </div>
       <p 
         className="text-xs md:text-sm text-center whitespace-nowrap"
         style={{ color: isBlueMode ? 'rgba(255,255,255,0.8)' : '#5c5c5c' }}
